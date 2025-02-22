@@ -15,6 +15,37 @@
     ]
   },
   "context": {
+
+    
+    "bucket_name": "my-geo-pipeline-bucket",
+    
+    
+    "compression_function_name": "GeoCompressionLambda",
+    "analysis_function_name": "GeoAnalysisLambda",
+
+   
+    "compression_layer_name": "GeoCompressionLayer",
+    "analysis_layer_name": "GeoAnalysisLayer",
+
+    
+    "github_token":"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",
+    "github_repo_name": "water_resources_geojson",
+    
+    
+    "bedrock_model_id": "anthropic.claude-3-5-sonnet-20241022-v2:0",
+    "bedrock_region": "us-west-2",
+
+    
+    "max_lambda_memory_mb": 10240,
+    "max_lambda_timeout_minutes": 15,     
+    "max_lambda_ephemeral_storage_mb": 10240,
+
+    
+    "compression_target_mb": 3,
+    
+    
+    "prompt_file_name": "prompt.py",
+
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
     "@aws-cdk/core:target-partitions": [
