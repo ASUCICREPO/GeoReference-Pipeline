@@ -20,6 +20,8 @@ The **GeoReference Pipeline** is a cloud-native, fully automated system designed
 6. **GeoJSON Data Pushed to GitHub Repository**
 7. **Error Handling & Logging in `error/` Folder**
 
+![Architecture Diagram](./Architecture/architecture.png)
+
 ## 🛠️ Setup & Installation
 
 ### Prerequisites 🔑
