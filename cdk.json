@@ -28,7 +28,7 @@
     "analysis_layer_name": "GeoAnalysisLayer",
 
     
-    "github_token":"Your_Github_Token",
+    "github_token":"Your_GITHUB_Token",
     "github_repo_name": "water_resources_geojson",
     
     

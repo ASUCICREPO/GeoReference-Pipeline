@@ -20,6 +20,16 @@ s3_client = boto3.client("s3")
 # For simplicity, let's create the client lazily after reading env variables in the handler.
 
 geolocator = Nominatim(user_agent="myGeocoder",timeout=10)
+# Colorado bounding coordinates (WGS84)
+# colorado_bbox = [-109.060253, 36.992426, -102.041524, 41.003444]
+
+# geolocator = Nominatim(
+#     user_agent="colorado_water_maps",
+#     timeout=10,
+#     viewbox=colorado_bbox, 
+#     bounded=True
+# )
+
 
 def invoke_bedrock_model_claude_multimodal(bedrock_client, content_image_b64, text_prompt, model_id, max_length=4096):
     """
@@ -194,7 +204,7 @@ Instructions and notes:
 4. **water_resources**:
    - Identify every water resource visible on the map.
    - For each, include "name", "description", and "feature_type".
-   - If the water resource has a visible township-range that is complete (including T, R, and Section values), include it in the "township_range" field; if not, use an empty string.
+   - If the water resource has a visible township-range that is complete (including T, R), include it in the "township_range" field; if not, use an empty string.
 5. Return **only** valid JSON without any extra commentary, explanations, or text outside of the JSON object.
 """
     # try:
@@ -275,7 +285,7 @@ Instructions and notes:
             if not coord:
                 # Attempt geocoding
                 try:
-                    query = ts if ts else name +", CO"
+                    query = ts if ts else name +", Colorado, USA"
                     
                     if not query:
                         raise ValueError("No township or name to geocode.")
